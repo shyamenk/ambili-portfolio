@@ -1,3 +1,4 @@
+import AboutMe from "./components/about";
 import ArtWorks from "./components/ArtWorks";
 import Awards from "./components/Awards";
 import Biography from "./components/Biography";
@@ -17,6 +18,7 @@ export default function Home() {
       <ArtWorks />
       <Exhibition />
       <Gallery />
+      <AboutMe />
       <Contact />
     </main>
   );

@@ -119,13 +119,15 @@ export default function ArtWorks() {
         <DialogContent className="max-w-6xl w-11/12 h-[90vh] p-0">
           <div className="flex flex-col md:flex-row h-full">
             <div className="w-full md:w-2/3 h-1/2 md:h-full relative bg-black">
-              <Image
-                src={selectedArtwork?.image || ""}
-                alt={selectedArtwork?.title || ""}
-                layout="fill"
-                objectFit="contain"
-                className="p-4"
-              />
+              {selectedArtwork && (
+                <Image
+                  src={selectedArtwork.image}
+                  alt={selectedArtwork.title}
+                  layout="fill"
+                  objectFit="contain"
+                  className="p-4"
+                />
+              )}
               <Button
                 variant="ghost"
                 size="icon"

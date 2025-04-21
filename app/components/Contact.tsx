@@ -85,7 +85,7 @@ export default function Contact() {
             </CardContent>
           </Card>
 
-          <div className="space-y-8">
+          <div className="space-y-14">
             <Card>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold mb-4 text-gray-900">
@@ -94,16 +94,18 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <Mail className="w-5 h-5 text-yellow-400 mr-3" />
-                    <span className="text-gray-600">contact@ambili.com</span>
+                    <span className="text-gray-600">
+                      ambilifilmmaker@gmail.com
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <Phone className="w-5 h-5 text-yellow-400 mr-3" />
-                    <span className="text-gray-600">+91 98765 43210</span>
+                    <span className="text-gray-600">+91 9447527522</span>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="w-5 h-5 text-yellow-400 mr-3" />
                     <span className="text-gray-600">
-                      Trivandrum, Kerala, India
+                      Chentrappinni, KP Puram, Thrissur, Kerala, India, 680687{" "}
                     </span>
                   </div>
                 </div>
@@ -146,4 +148,3 @@ export default function Contact() {
     </section>
   );
 }
-

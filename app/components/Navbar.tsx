@@ -11,6 +11,7 @@ import {
   Mail,
   BookOpen,
   Images,
+  User2,
 } from "lucide-react";
 
 const navItems = [
@@ -20,6 +21,7 @@ const navItems = [
   { name: "Arts", icon: <Palette size={18} />, href: "#artworks" },
   { name: "Exhibition", icon: <BookOpen size={18} />, href: "#exhibition" },
   { name: "Gallery", icon: <Images size={18} />, href: "#gallery" },
+  { name: "About", icon: <User2 size={18} />, href: "#about" },
   { name: "Contact", icon: <Mail size={18} />, href: "#contact" },
 ];
 
@@ -60,7 +62,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="flex items-center space-x-6">
               {navItems.map((item) => (
@@ -81,7 +82,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -97,7 +97,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden absolute w-full bg-black/95 backdrop-blur-md">
           <div className="px-4 pt-2 pb-3 space-y-1">

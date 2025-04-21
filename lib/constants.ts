@@ -2,16 +2,18 @@ export const movies = [
   {
     title: "Veena poovu",
     year: "1983",
-    screenPlay: "Ravisankar",
+    screenPlay: "Ambili",
     image: "/film1.jpg",
-    description: "A classic tale of love and music.",
+    description:
+      "A young musician falls for the daughter of a destitute Brahmin, but their love is thwarted when she is forced into marriage with a mentally challenged man from her community.",
   },
   {
     title: "Ashtapadi",
     year: "1983",
     screenPlay: "Perumbadavam Sreedharan",
     image: "/film2.jpg",
-    description: "A poetic journey through artistic expression.",
+    description:
+      "Keshavan Nair is a caretaker employed at Valiya Nambthiri's house. However, problems arise when the former's son, Unnikrishinan, falls in love with Radha, an orphan from a lower caste",
   },
   {
     title: "Maunaragam",
@@ -54,20 +56,6 @@ export const movies = [
     screenPlay: "Ravikrishnan",
     image: "/film8.jpg",
     description: "A narrative of community and connection.",
-  },
-  {
-    title: "Kabani",
-    year: "2001",
-    screenPlay: "Thrissur Viswam",
-    image: "/film9.jpg",
-    description: "Exploring the river of life's journey.",
-  },
-  {
-    title: "Chamante Kabani",
-    year: "2015",
-    screenPlay: "N/A",
-    image: "/film10.jpg",
-    description: "A modern perspective on timeless themes.",
   },
 ];
 

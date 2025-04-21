@@ -1,44 +1,59 @@
 "use client";
 
-import { Camera, Film, Palette, Award } from "lucide-react";
+import { useState } from "react";
+import { Camera, Film, Palette, Award, Brush } from "lucide-react";
+import { motion } from "framer-motion";
 
 const achievements = [
   {
-    icon: <Camera className="w-8 h-8 text-yellow-400" />,
+    icon: <Camera className="w-8 h-8" />,
     title: "Photography",
     description:
       "Started as a still photographer, capturing moments that tell stories.",
   },
   {
-    icon: <Palette className="w-8 h-8 text-yellow-400" />,
+    icon: <Palette className="w-8 h-8" />,
     title: "Art Direction",
     description:
       "Mastered the art of visual storytelling through set design and aesthetics.",
   },
   {
-    icon: <Film className="w-8 h-8 text-yellow-400" />,
+    icon: <Film className="w-8 h-8" />,
     title: "Film Direction",
     description:
       "Revolutionizing Malayalam cinema with unique visual narratives.",
   },
   {
-    icon: <Award className="w-8 h-8 text-yellow-400" />,
+    icon: <Award className="w-8 h-8" />,
     title: "Artistry",
     description:
       "A born painter with deep understanding of colors and visual composition.",
   },
+  {
+    icon: <Brush className="w-8 h-8" />,
+    title: "Makeup Artistry",
+    description:
+      "A visionary artist with an innate talent for blending colors and creating stunning visual harmony.",
+  },
 ];
 
 export default function Biography() {
+  const [selectedAchievement, setSelectedAchievement] = useState(null);
+
   return (
     <section
       id="biography"
-      className="py-20 bg-gradient-to-b from-white to-gray-300 text-gray-900"
+      className="py-20 bg-gradient-to-b from-gray-100 to-white text-gray-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-yellow-400 sm:text-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-extrabold text-yellow-500 sm:text-5xl">
             Biography
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
@@ -46,43 +61,57 @@ export default function Biography() {
             Malayalam Cinema through innovative storytelling and artistic
             excellence.
           </p>
-        </div>
+        </motion.div>
 
         {/* Achievements Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {achievements.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 "
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="group relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+              onClick={() => setSelectedAchievement(item)}
             >
-              <div className="text-yellow-400 mb-4 group-hover:text-yellow-600 transition-colors duration-300">
-                {item.icon}
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="relative z-10">
+                <div className="text-yellow-500 mb-4 group-hover:text-white transition-colors duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-white mb-2 transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 group-hover:text-white transition-colors duration-300">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-600">{item.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Biography Full Text */}
-        <div className="mt-16 bg-white rounded-lg shadow-lg p-8">
-          <div className="prose prose-lg max-w-none text-gray-600">
-            <blockquote className="border-l-4 pl-4 italic text-gray-700 text-lg font-medium border-yellow-400">
-              <p>
-                The journey from being a still photographer to becoming a
-                renowned film director has been marked by dedication and
-                artistic growth. Mastering multiple disciplines including
-                make-up artistry, design, and art direction has contributed to a
-                unique perspective in filmmaking. As a natural-born painter with
-                an innate understanding of color theory and visual composition,
-                this multifaceted background has shaped a distinctive approach
-                to cinematic storytelling.
-              </p>
-            </blockquote>
-          </div>
-        </div>
+        {/* Selected Achievement Details */}
+        {selectedAchievement && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-lg shadow-xl p-8 mb-16"
+          >
+            <div className="flex items-center mb-4">
+              <div className="text-yellow-500 mr-4">
+                {selectedAchievement.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">
+                {selectedAchievement.title}
+              </h3>
+            </div>
+            <p className="text-gray-600 text-lg">
+              {selectedAchievement.description}
+            </p>
+          </motion.div>
+        )}
       </div>
     </section>
   );
